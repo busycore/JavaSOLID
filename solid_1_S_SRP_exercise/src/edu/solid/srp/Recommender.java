@@ -11,7 +11,7 @@ public class Recommender {
 		List<Movie> recommended = new ArrayList<>();
 		
 		for (Movie favorite: client.getFavorites()) {
-			
+
 			recommended.addAll(BBDD.MOVIES_BY_DIRECTOR.get(favorite.getDirector()));
 		}
 		// recommended.removeAll(client.getFavorites());
@@ -19,10 +19,4 @@ public class Recommender {
 		return recommended;
 	}
 	
-	public String recommendationsCSV (Client client) {
-		
-		return recommendations(client).stream()
-		      .map(p -> (p.getTitle() + "," + p.getGenre() + "," + p.getDirector()))
-		      .collect(Collectors.joining("\n"));
-	}
 }

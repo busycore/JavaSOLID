@@ -25,7 +25,7 @@ public class TestRecommender {
 	public void test_format() {
 		Recommender r = new Recommender();
 		
-		String csv = r.recommendationsCSV(BBDD.JOHN);
+		String csv = new CSVExporter().export(r.recommendations(BBDD.JOHN));
 		
 		String expected = "Saving Private Ryan,Spielberg,war";
 		
